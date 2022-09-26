@@ -1,0 +1,45 @@
+<section>
+    <div class="container">
+       <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">USER ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">DATE</th>
+      <th scope="col">ADDRESS</th>
+      <th scope="col">PINCODE</th>
+      <th scope="col">MOBILE</th>
+      <th scope="col">AMOUNT</th>
+       <th scope="col">PAYEMENT METHOD</th>
+      <th scope="col">ORDER STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    
+   <tr>
+      {{!-- <th scope="col"></th> --}}
+       <td>{{this.userid}}</td>
+       <td>{{this.name}}</td>
+      <td>{{this.date}}</td>
+      <td>{{this.deliveryDetails.address}}</td>
+      <td>{{this.deliveryDetails.pincode}}</td>
+      <td>{{this.deliveryDetails.mobile}}</td>
+      <td>{{this.totalamount}}</td>
+      <td>{{this.payment}}</td>
+      <td>{{this.status}}</td>
+      <td><button class="btn btn-primary" onclick="click()">Approve Shipping</button></td>
+    </tr>
+    {{/each}}
+      
+  </tbody>
+ </table>
+</div>
+
+</section>
+<script>
+    function click()
+{
+    alert("Shipping Approved")
+}
+</script>

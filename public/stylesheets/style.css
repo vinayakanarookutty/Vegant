@@ -1,0 +1,197 @@
+
+.form-control {
+  width: 500px;
+  position: relative;
+  left: 10px;
+  top: 20px;
+}
+.btn-outline-success {
+  position: relative;
+  left: 512px;
+  bottom: 17px;
+}
+.container{
+  position: relative;
+  
+}
+.label{
+  position: relative;
+  top: 50px;
+  right: 20px;
+
+}
+.adjust{
+  position: relative;
+  left: 70px;
+
+}
+.enter{
+  position: relative;
+  top: 50px;
+  left:30px;
+}
+#hello {
+  position: relative;
+  left: 100px;
+  bottom: 15px;
+  
+}
+/* vgfghfghfghfghfgh */
+.main{
+  height: 100px;
+  width: 200px;
+
+}
+.section-one{
+    height: 100px;
+    background-color: #555; 
+    background-image: url('https://www.lorvensofttech.com/images/slider/s3.jpg');
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+}
+.section-one h3{
+
+font-family: cursive;
+left:300px;
+top: 150px;
+font-size: 40px;
+font-weight: bold;
+color: #fff;
+
+}
+.section-two{
+    height: 145vh;
+   background-position: center;
+   background-size: auto;
+}
+/* section three */
+.section-three{
+    height: 100vh;
+    background-image: url('https://blog.hubspot.com/hs-fs/hubfs/ecommerce-website-design-smokehaus.jpeg?width=650&name=ecommerce-website-design-smokehaus.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footer{
+    background: #060606;
+    height: 350px;
+}
+.content{
+    background: rgb(240, 220, 220);
+    height: 200px;
+}
+.mail{
+    background: rgb(7, 7, 7);
+    float: left;
+    height: 201px;
+    width: 23%;
+    margin: 34px;
+    margin-left: 51px;
+}
+
+.explore{
+    background: rgb(3, 3, 3);
+    float: left;
+    height: 202px;
+    width: 500px;
+    margin: 34px;    
+}
+
+.contact{
+    float: left;
+    background: rgb(2, 2, 2);
+    height: 202px;
+    width: 317px;
+    margin: 34px;
+}
+
+.txt1{
+    color: #fff;
+    font-family: cursive;
+}
+
+.mail1{
+    font-size: 27px;
+    color: whitesmoke;
+    font-family: cursive;
+    
+}
+#mailbox{
+    height: 42px;
+    width: 250px;
+    border-radius: 10px;
+    border-color: white;
+}
+
+.copyright{
+    margin-left: 525px;
+    background: rgb(0, 0, 0);
+    width: 353px;
+    height: 46px;
+    float: left;
+}
+
+.copy{
+    color: #fff;
+    
+}
+
+.header{
+  background: linear-gradient(984deg, grey, transparent);
+  height: 88px;
+  float: left;
+  width: 100%;
+}
+
+.logo{
+  float: left;
+}
+
+.lists{
+  float: left;
+  height: 88px;
+  width: 86%;
+}
+.prod{
+  margin: 26px;
+  margin-left: 63px;
+  float: left;
+  width: 266px;
+}
+
+.button{
+  height: 35px;
+  width: 100px;
+  font-family: "Audiowide", sans-serif;
+  color: gray;
+  background: lavenderblush;
+  border: outset;
+}
+
+.search{
+  
+  float: left;
+  margin-top: 27px;
+  width: 333px;
+}
+.searchbox{
+  width: 437px;
+  border: outset;
+  border-color: gainsboro;
+  border-radius: 10px;
+  float: left;
+}
+
+.searchpic{
+  float: left;
+  margin-top: 24px;
+  margin-left: 73px;
+}
+.bodybg{
+  background-image: url('image/hello.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin-top: 100px;
+}
+

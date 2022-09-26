@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+       <table id="table"class="table">
+  <thead>
+    <tr>
+    
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">MOBILE</th>
+      <th scope="col">MAIL</th>
+      <th scope="col">EDIT</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each user}}
+   <tr>  
+      <td>{{this._id}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.mob}}</td>
+      <td>{{this.mail}}</td>
+    <td><a class="btn btn-danger" onclick=" return confirm('Are you sure you want to delete {{this.name}} ?')" role="button" href="/admin/delete-user/{{this._id}}">Delete</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+ </table>
+
+</div>
+
+</section>

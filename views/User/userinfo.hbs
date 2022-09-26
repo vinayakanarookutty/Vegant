@@ -1,0 +1,29 @@
+<section>
+    <div class="container">
+       <table id="table"class="table">
+  <thead>
+    <tr>
+    
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">MOBILE</th>
+      <th scope="col">MAIL</th>
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each user}}
+   <tr>  
+      <td>{{this._id}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.mob}}</td>
+      <td>{{this.mail}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+ </table>
+
+</div>
+
+</section>

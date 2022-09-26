@@ -1,0 +1,27 @@
+<div class="row">
+    
+    <div class="col-md-6 m-auto">
+<form action="/login" method="post" enctype="application/x-www-form-urlencoded">
+  <div class="form-group">  
+    {{{{def logerror=null}}}}
+    {{#if(logerror)}}
+    <p class="error">invalid password or username</p>
+    {{/if}}
+    {{{{/def}}}}
+    
+
+    </div>
+<label>Email address</label>
+    <input name="mail" type="mail" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+   <br> <label>Password</label>
+    <input name="password"type="password" class="form-control"placeholder="Password"><br>
+    <a href="/signup">Create new account ?</a><br>
+    <center>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </center>  
+  </div>
+  
+  </form>
+</div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<section>
+  <div class="container">
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price(Rs)</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      {{#each products}}
+      <tbody>
+        <tr>
+     
+          <td><img
+                  src="/product-images/{{this.products._id}}.jpg"
+                  style="height: 50px;width: 50px";
+                  class="img-fluid rounded-3" alt="Cotton T-shirt"></td>
+                  <td>{{this.products12.Name}}</td>
+                  <td>{{this.products12.Price}}</td>
+                 
+                <td><span id="{{this.products12._id}}">{{this.quantity}}</span>
+            </td>    
+        </tr>
+      </tbody>
+      {{/each}}
+    </table>
+</section>

@@ -1,0 +1,102 @@
+<header >
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <a class="navbar-brand"id="mainheading" href="/home">VEGANT</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Products </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/user/carts">Cart <span  id="cart-count">{{cartCount}}</span> </a>
+             
+          </li>
+         
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link" href="/orders">Orders</a>
+          </li>
+          {{/if}}
+          <li class="nav-item dropdown">
+           
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/admin">Products</a>
+              <a class="dropdown-item" href="/admin/alogin">Login</a>
+              <div class="dropdown-divider"></div>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/aboutus">About us</a>
+          </li>
+        </ul>
+        {{!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> --}}
+      </div>
+    
+      {{!-- <div class="header" >
+    <div class="logo">
+      <a class="navbar-brand" href="/"><img src="/image/logo.png" height="80px"></a>
+
+    </div>
+    <div class="lists">
+        <div class="prod">
+          <button class="button" href="">Product</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="button" href="">Category</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+        </div>
+        <div class="search">
+          <form>
+            <input type="search" class="searchbox">
+          </form>
+        </div>
+        <div class="searchpic">
+           <a href=""><img src="/image/search.png" height="24px"></a>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <a href=""><img src="/image/cart.png" height="24px"></a>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div> --}}
+      <div class="dropdown">
+        <button class="btn btn-secondary btn btn-danger" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="true">
+          {{#if user}}
+          {{user.name}}
+          {{else}}
+          Account
+        {{/if}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          {{#if user}}
+          <li><a class="dropdown-item" href="/userinfo">User Details</a></li>
+          <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+          {{else}}
+           <li><a class="dropdown-item" href="/login">Login</a></li>
+        {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<style>
+  #mainheading{
+    color: green;
+    font-weight: bold;
+    
+
+  }
+</style>

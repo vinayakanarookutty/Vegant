@@ -1,0 +1,152 @@
+{{!-- <section class="h-100" style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+    {{#each product}}
+    {{#each this.products}}
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <p>{{this.Name}}</p>
+                <img
+                  src="/product-images/{{this._id}}.jpg"
+                  style="height: 50px;width: 50px";
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              {{/each}}
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">{{this.Description}}</p>
+                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <i class="fas fa-minus">{{this.quantity}}</i>
+                </button>
+
+                <input id="form1" min="0" name="quantity" value="2" type="number"
+                  class="form-control form-control-sm" />
+
+                <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">{{this.Price}}</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+</section> --}}
+<section>
+  <div class="container">
+    <table class="table mt-5" id="table1">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price(Rs)</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      {{#each product}}
+      <tbody>
+        <tr>
+     
+          <td><img
+                  src="/product-images/{{this.product._id}}.jpg"
+                  style="height: 50px;width: 50px";
+                  class="img-fluid rounded-3" alt="Cotton T-shirt"></td>
+                  <td>{{this.product.Name}}</td>
+                  <td>{{this.product.Price}}</td>
+                  <td><button class="btn btn-primary cart-item-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button>
+                  <span id="{{this.product._id}}">{{this.quantity}}</span>
+                  <button class="btn btn-primary cart-item-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button></td>
+                  
+                  <td>
+                    <button onclick="removeitem('{{this._id}}','{{this.product._id}}')" class="btn btn-danger">Remove</button>
+                  </td>
+        </tr>
+      </tbody>
+      {{/each}}
+    </table>
+    <hr>
+    <h3 class="float-right mr-5">TOTAL:<span id="total">{{Totalvalue}}</span></h3>
+   <br><br> <a href="/place-order" class="btn btn-danger mr-10 float-right">Place order</a>
+    </hr>
+  </div>
+</section>
+<script>
+function changeQuantity(cartId,productid,userid,count)
+{
+  let quantity=parseInt(document.getElementById(productid).innerHTML)
+  count=parseInt(count)
+$.ajax(
+  {
+    url:'/change-product-quantity',
+    data:{
+      userid:userid,
+      cart:cartId,
+      product:productid,
+      count:count,
+      quantity:quantity
+    },
+    method:'post',
+    success:(response)=>{
+      if(response.removeProduct)
+      {
+        alert("Product removed from cart")
+        location.reload()
+      }
+      {
+        document.getElementById(productid).innerHTML=quantity+count;
+        document.getElementById('total').innerHTML=response.total;
+      }
+    }
+  }
+)
+
+}
+
+
+</script>
+<script>
+  $(document).ready( function () {
+    $('#table1').DataTable();
+} );
+</script>
+<script>
+function removeitem(cartid,productid)
+{
+    $.ajax(
+  {
+    url:'/removeproduct',
+    data:{
+     
+      cart:cartid,
+      product:productid
+    },
+     method:'post',
+    success:(response)=>{
+      if(response.removeProduct)
+      {
+        alert("Product removed from cart")
+        location.reload()
+      }
+      
+    }  
+
+  })
+}
+</script>

@@ -1,0 +1,37 @@
+<section>
+    <div class="container">
+  <form enctype="multipart/form-data" action="/admin/edit-products/{{product._id}}" method="post">
+  <div class="form-group mt-4">
+    <h1>EDIT PRODUCTS</h1>
+    <label class="label">Name</label>
+    <input type="text" name="Name" class="form-control adjust" value="{{product.Name}}" placeholder="Enter name">
+    <!--<small id="emailHelp" class="form-text text-muted">important</small>-->
+  </div>
+  <div class="form-group">
+    <label class="label">Catagory</label>
+    <input type="text" name="Catagory"class="form-control adjust"  value="{{product.Catagory}}" placeholder="Enter Catagory">
+  </div>
+   <div class="form-group mt-5">
+    <label class="label">Description</label>
+    <input type="text" name="Description" value="{{product.Description}}" class="form-control adjust" id="exampleInputEmail1" placeholder="Enter Description">
+  </div>
+  <div class="form-group">
+    <label class="label">Price</label>
+    <input type="text" name="Price"class="form-control adjust" value="{{product.Price}}" placeholder="Enter Price">
+  </div>
+  <div class="form-group">
+    <label class="label">Image</label>
+   <br><br><img id="hello"src="/product-images/{{product._id}}.jpg" alt="image" style="height: auto;width: 70px;"></image>
+    <input type="file" class="form-control-file enter" name="image" onchange="viewImage(event)">
+  </div>
+  <center>
+  <button type="submit" class="btn btn-secondary label mt-4 ">Submit</button>
+  </center>
+</form>
+    </div>
+</section>
+<script>
+function viewImage(event){
+  document.getElementById('hello').src=URL.createObjectURL(event.target.files[0]);
+}
+</script>

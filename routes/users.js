@@ -5,6 +5,8 @@ var router = express.Router();
 var producthelper= require('../helpers/product-helpers')
 var userhelper= require('../helpers/userhelper')
 const nodemailer = require("nodemailer");
+
+
 require('dotenv').config()
 // Download the helper library from https://www.twilio.com/docs/node/install
 // Find your Account SID and Auth Token at twilio.com/console
@@ -143,6 +145,43 @@ router.post('/place-order',async(req,res,next)=>{
   })
 }),
 router.get('/order-success',varify,(req,res)=>{
+   // async..await is not allowed in global scope, must use a wrapper
+async function main() {
+  // Generate test SMTP service account from ethereal.email
+  // Only needed if you don't have a real mail account for testing
+  let testAccount = await nodemailer.createTestAccount();
+
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: "vegantstore@gmail.com", // generated ethereal user
+      pass: "pknvkxzxxicsfgzi", // generated ethereal password
+    },
+  });
+  
+
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: "vegantstore@gmail.com", // sender address
+    to: "vinayaksukhalal@gmail.com", // list of receivers
+    subject: "Order Success ✔", // Subject line
+    text: "YOUR ORDER PLACED SUCCESFULLY", // plain text body
+    html: "<b>YOUR ORDER PLACED SUCCESFULLY</b>", // html body
+  });
+
+  console.log("Message sent: %s", info.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  // Preview only available when sending through an Ethereal account
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+}
+
+main().catch(console.error);
   res.render('User/order-success',{admin:false,user:req.session.user})
 }),
 router.get('/orders',varify,async(req,res)=>{
@@ -164,47 +203,12 @@ router.post('/removeproduct',(req,res,next)=>{
   })
 }),
 router.post('/varifypay',(req,res,next)=>{
-res.render('User/payment-success',{admin:false})
+res.render('User/order-success',{admin:false})
 })
 
 
 router.get('/aboutus',(req,res,next)=>{
-  // async..await is not allowed in global scope, must use a wrapper
-async function main() {
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  let testAccount = await nodemailer.createTestAccount();
-
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
-    },
-  });
-
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "bar@example.com, baz@example.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
-
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-}
-
-main().catch(console.error);
-
+ 
 res.render('User/aboutus',{admin:false})
 })
 router.get('/userinfo',varify,async(req,res)=>{

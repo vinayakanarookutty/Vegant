@@ -217,4 +217,12 @@ router.get('/userinfo',varify,async(req,res)=>{
   console.log(user)
   res.render('User/userinfo',{admin:false,user,user:req.session.user})
 }),
+router.get('/contactus',(req,res,next)=>{
+ 
+  res.render('User/contact',{admin:false})
+  })
+  router.get('/blogs',(req,res,next)=>{
+ 
+    res.render('User/blogs',{admin:false})
+    })
 module.exports = router;

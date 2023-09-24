@@ -28,7 +28,7 @@
       <td>{{this.totalamount}}</td>
       <td>{{this.payment}}</td>
       <td>{{this.status}}</td>
-      <td><button class="btn btn-primary" onclick="click()">Approve Shipping</button></td>
+      <td><button class="btn btn-primary" onclick=" return confirm('Are you sure you want to confirm order for {{this.userid}} ?')" role="button" href="/admin/approve-shipping/{{this.userid}}">Approve Shipping</button></td>
     </tr>
     {{/each}}
       
@@ -37,9 +37,3 @@
 </div>
 
 </section>
-<script>
-    function click()
-{
-    alert("Shipping Approved")
-}
-</script>

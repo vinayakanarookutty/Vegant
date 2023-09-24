@@ -1,3 +1,4 @@
+<section class="container">
      <section class="breadcrumb-section set-bg" id="blog123" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -18,12 +19,13 @@
                background-image: url("/image/breadcrumb.jpg");
         }
     </style>
-  <div class="container">
+  <div class="container ">
     <div class="row">
-            <div class="for">
+            <div class="checkout__input">
+                 <h3>Enter Delivery Details</h3><br>
                 <form action="/place-order" id="checkout-form">
-                   
-                        <h3>Enter Delivery Details</h3><br>
+                   <div class="checkout__form">
+                       
                         <label >Address</label><br>
                         <input id="address" name="address" type="text"><br>
                         <label>Pincode</label><br>
@@ -31,17 +33,19 @@
                         <label>Mobile</label><br>
                         <input id="mobile" name="mobile" class="box" type="text"><br>
                         <input type="text" name="userid" id="" value="{{user._id}}" hidden>
-          
+                    </div>
                    </div>
-                      <div class="bor">
-                   <div class="amt">
+                      <div class="checkout__order">
+                   <div class="checkout__order__subtotal">
+                    <div class="checkout__order__total">
                     <h3>Total Amount: Rs {{Total}} </h3>
+                   </div>   
                     <hr>
                     
                         <label>Payment Method</label><br>
                         <input name="payment" type="radio" value="COD">COD<br>
                         <input name="payment" type="radio" value="Online Payment">Online payment<br>
-                        <button class="butt" type="submit">Checkout</button>
+                        <button class="btn btn-success" type="submit">Checkout</button>
 
 
                  </form>
@@ -49,128 +53,9 @@
         </div>
     </div>
 </div>
-<section class="checkout spad">
-        <div class="container">
-            <div class="row">
-                {{!-- <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
-                    </h6>
-                </div> --}}
-            </div>
-            <div class="checkout__form">
-                <h4>Billing Details</h4>
-                <form action="/place-order">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Ship to a different address?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
-                                {{!-- <ul>
-                                    <li>Vegetable’s Package <span>$75.99</span></li>
-                                    <li>Fresh Vegetable <span>$151.99</span></li>
-                                    <li>Organic Bananas <span>$53.99</span></li>
-                                </ul> --}}
-                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                                <div class="checkout__order__total">Total <span>$750.99</span></div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__radio">
-                                       <label>Payment Method</label><br>
-                        <input name="payment" type="radio" value="COD">COD<br>
-                        <input name="payment" type="radio" value="Online Payment">Online payment<br>
-                        {{!-- <button class="butt" type="submit">Checkout</button> --}}
-                                </div>
-                                <button type="submit" class="site-btn">Checkout</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+</section>
+
+    {{!-- </section> --}}
         {{!-- <style>
             .for{
     float: left;
@@ -233,12 +118,12 @@
     "name": "VEGANT",
     "description": "Test Transaction",
     "image": "https://example.com/your_logo",
-    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "order_id": order.id+1000, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
     "prefill": {
-        "name": "Gaurav Kumar",
-        "email": "gaurav.kumar@example.com",
-        "contact": "9999999999"
+        "name": "Vinayak S",
+        "email": "vinayaksukhalal@gmail.com",
+        "contact": "9567771549"
     },
     "notes": {
         "address": "Razorpay Corporate Office"

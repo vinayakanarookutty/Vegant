@@ -111,7 +111,6 @@ if(req.files.image)
 router.get('/userdetails',async function(req,res){
  
  let user=await productHelpers.getalluser()
-console.log(user)
 res.render('Admin/userdetails',{admin:true,user})
 
 });
@@ -119,8 +118,16 @@ router.get('/delete-user/:id',function(req,res){
   var prid=req.params.id;
   console.log(prid);
   productHelpers.deleteuser(prid).then((response)=>{
-    res.redirect('admin/userdetails')
+    res.redirect('/admin/userdetails')
   })
+  
+});
+router.get('/approve-shipping/:id',function(req,res){
+  var prid=req.params.id;
+  console.log(prid);
+  // productHelpers.deleteuser(prid).then((response)=>{
+  //   res.redirect('/admin/userdetails')
+  // })
   
 });
 module.exports = router;

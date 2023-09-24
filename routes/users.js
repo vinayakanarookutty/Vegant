@@ -129,7 +129,8 @@ router.post('/place-order',async(req,res,next)=>{
   let productsss=await userhelper.getcartList(req.body.userid)
   let total=await userhelper.getTotalAmount(req.body.userid)
   let order=await userhelper.getOrderId(req.body.userid)
-  console.log(productsss);
+  let mail=await userhelper.getMailId(req.body.userid)
+  console.log(mail);
   userhelper.PlaceOrder(req.body,productsss,total).then(()=>{
    
     if(req.body['payment']==='COD')
@@ -225,4 +226,8 @@ router.get('/contactus',(req,res,next)=>{
  
     res.render('User/blogs',{admin:false})
     })
+router.post('/emailus',(req,res)=>{
+  let message=req.body
+  console.log(message)
+})
 module.exports = router;

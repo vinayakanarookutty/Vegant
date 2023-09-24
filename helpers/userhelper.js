@@ -357,18 +357,23 @@ getuser: (userid)=>{
     return new Promise(async (resolve, reject) => {
         // db.get().collection(j.USER_COLLECTION).find({_id: objectid(userid)}).toArray()
         // console.log(users)
-        let users = await db.get().collection(j.USER_COLLECTION).aggregate(
-            [
-                {
-                    $match: { user: objectid(userid) }
-                },
-               
-            ]
+        let users = await db.get().collection(j.USER_COLLECTION).find({ user: objectid(userid) }
         ).toArray()
         console.log(users)
         resolve(users)
     })
-}
+},
+getMailId: (userid)=>{
+    return new Promise(async (resolve, reject) => {
+        // db.get().collection(j.USER_COLLECTION).find({_id: objectid(userid)}).toArray()
+        // console.log(users)
+        let mail = await db.get().collection(j.USER_COLLECTION).find({ user: objectid(userid) }
+        ).toArray()
+        console.log(mail)
+        resolve(mail)
+    })
+},
+
 
 
 }

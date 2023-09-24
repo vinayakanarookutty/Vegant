@@ -1,59 +1,32 @@
-{{!-- <section class="h-100" style="background-color: #eee;">
-  <div class="container h-100 py-5">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-10">
-    {{#each product}}
-    {{#each this.products}}
-        <div class="card rounded-3 mb-4">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <p>{{this.Name}}</p>
-                <img
-                  src="/product-images/{{this._id}}.jpg"
-                  style="height: 50px;width: 50px";
-                  class="img-fluid rounded-3" alt="Cotton T-shirt">
-              </div>
-              {{/each}}
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">{{this.Description}}</p>
-                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i class="fas fa-minus">{{this.quantity}}</i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  class="form-control form-control-sm" />
-
-                <button class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">{{this.Price}}</h5>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
+<section class="container">
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" id="blog12" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Cart</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Home</a>
+                            <span>Cart</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-         
         </div>
-      {{/each}}
-      </div>
-    </div>
-  </div>
-</section> --}}
-<section>
+    </section>
+    <style>
+        #blog12{
+               background-image: url("/image/breadcrumb.jpg");
+        }
+    </style>
+<section class="shoping-cart spad">
   <div class="container">
-    <table class="table mt-5" id="table1">
+    <div class="shoping__cart__table">
+    <table class="table " id="table1">
       <thead>
         <tr>
-          <th scope="col">Item</th>
+          <th scope="col"  class="shoping__product" >Item</th>
           <th scope="col">Title</th>
           <th scope="col">Price(Rs)</th>
           <th scope="col">Quantity</th>
@@ -64,13 +37,13 @@
       <tbody>
         <tr>
      
-          <td><img
+          <td ><img
                   src="/product-images/{{this.product._id}}.jpg"
                   style="height: 50px;width: 50px";
                   class="img-fluid rounded-3" alt="Cotton T-shirt"></td>
-                  <td>{{this.product.Name}}</td>
-                  <td>{{this.product.Price}}</td>
-                  <td><button class="btn btn-primary cart-item-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button>
+                  <td >{{this.product.Name}}</td>
+                  <td class="shoping__cart__price">{{this.product.Price}}</td>
+                  <td class="shoping__cart__quantity" ><button class="btn btn-primary cart-item-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button>
                   <span id="{{this.product._id}}">{{this.quantity}}</span>
                   <button class="btn btn-primary cart-item-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button></td>
                   
@@ -82,10 +55,12 @@
       {{/each}}
     </table>
     <hr>
-    <h3 class="float-right mr-5">TOTAL:<span id="total">{{Totalvalue}}</span></h3>
-   <br><br> <a href="/place-order" class="btn btn-danger mr-10 float-right">Place order</a>
+    <h3 class="float-right mr-5 shoping__cart__total">TOTAL:<span class="breadcrumb__text">{{Totalvalue}}</span></h3>
+   <br><br> <a href="/place-order" class="btn btn-success mr-5 float-right">Place order</a>
     </hr>
   </div>
+  </div>
+</section>
 </section>
 <script>
 function changeQuantity(cartId,productid,userid,count)

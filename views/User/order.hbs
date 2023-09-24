@@ -1,6 +1,27 @@
 <section>
     <div class="container">
-       <table class="table">
+       <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" id="blog12" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Orders</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Home</a>
+                            <span>Orders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        #blog12{
+               background-image: url("/image/breadcrumb.jpg");
+        }
+    </style>
+       <table class="table mt-5">
   <thead>
     <tr>
       
@@ -25,7 +46,7 @@
       <td>{{this.totalamount}}</td>
       <td>{{this.payment}}</td>
       <td>{{this.status}}</td>
-      <td><a class="btn btn-primary" href="/view-order-product/{{this._id}}">VIEW PRODUCT</a></td>
+      {{!-- <td><a class="btn btn-primary" href="/view-order-product/{{this._id}}">VIEW PRODUCT</a></td> --}}
     </tr>
     {{/each}}
   </tbody>
